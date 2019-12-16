@@ -5,6 +5,7 @@ import greenfoot.*;
  * 
  * @author (your name) 
  * @version (a version number or a date)
+ * Testing
  */
 public class BackGround1 extends World
 {

@@ -5,14 +5,27 @@ public class Mario extends Actor
     int speed;
     long lastTime;
     int Lives = 3;
+
+    public Heart[] hearts = new Heart[Lives];
+
+    public Mario(Heart[] hearts) {
+        this.hearts = hearts;
+    }
+
+    public Mario() {
+
+    }
+
     public void act() 
     {
+
         speed = speed + 1;
         setLocation( getX(), getY() + speed);
         getWorld().showText("Lives : "+ Lives +"",1450, 50);
         if(isTouching(Barrel.class))
         {
             removeTouching(Barrel.class);
+            getWorld().removeObject(hearts[Lives-1]);
             Lives = Lives - 1;
         }
         if(Lives == 0)
@@ -45,33 +58,32 @@ public class Mario extends Actor
             move(-5);
             /*if(System.currentTimeMillis() - lastTime > 500 && Marioimage.equals("mariopixelCopy.png"))
             {
-                Marioimage = "marioleft.png";
-                setImage("marioleft.png");
-                lastTime = System.currentTimeMillis();
+            Marioimage = "marioleft.png";
+            setImage("marioleft.png");
+            lastTime = System.currentTimeMillis();
             } else {
-                if(System.currentTimeMillis() - lastTime > 500)
-                {
-                    Marioimage = "mariopixelCopy.png";
-                    setImage("mariopixelCopy.png");
-                    lastTime = System.currentTimeMillis();
-                }
+            if(System.currentTimeMillis() - lastTime > 500)
+            {
+            Marioimage = "mariopixelCopy.png";
+            setImage("mariopixelCopy.png");
+            lastTime = System.currentTimeMillis();
+            }
             } */
-            
-           
+
             setImage(imageNames[1]);
             while(isTouching(Floor.class))
             {
-               move(1);
+                move(1);
             } 
         } else {
             if(Greenfoot.isKeyDown("right"))
             {
-               move(5);
-               setImage(imageNames[2]);
+                move(5);
+                setImage(imageNames[2]);
                 while(isTouching(Floor.class))
                 {
-                  move(-1);
-               }
+                    move(-1);
+                }
             } else{
                 setImage(imageNames[0]);
             }

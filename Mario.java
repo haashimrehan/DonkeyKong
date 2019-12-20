@@ -1,8 +1,8 @@
 import greenfoot.*;
 public class Mario extends Actor
 {
+    String[] imageNames = {"MarioStandingStillRight.png","MarioRunLeft.png","MarioRunRight.png"};  
     int speed;
-    String Marioimage = "mariopixelCopy.png";
     long lastTime;
     int Lives = 3;
     public void act() 
@@ -58,7 +58,7 @@ public class Mario extends Actor
             } */
             
            
-            setImage("mariopixelCopy.png");
+            setImage(imageNames[1]);
             while(isTouching(Floor.class))
             {
                move(1);
@@ -67,13 +67,13 @@ public class Mario extends Actor
             if(Greenfoot.isKeyDown("right"))
             {
                move(5);
-               setImage("mariopixel.png");
+               setImage(imageNames[2]);
                 while(isTouching(Floor.class))
                 {
                   move(-1);
                }
             } else{
-                setImage("mario-big.png");
+                setImage(imageNames[0]);
             }
         }
         if(Greenfoot.isKeyDown("down"))

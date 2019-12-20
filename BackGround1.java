@@ -14,9 +14,9 @@ public class BackGround1 extends World
      * 
      */
     
-    public Heart[] hearts = new Heart[]{
-    new Heart(), new Heart(), new Heart()
-    };
+ //   public Heart[] hearts = new Heart[]{
+ //   new Heart(), new Heart(), new Heart()
+ //   };
     
     public BackGround1()
     {    
@@ -32,11 +32,6 @@ public class BackGround1 extends World
         addObject(new Floor(), 625, 781);
         addObject(new Floor(), 875, 781);
 
-        addObject(new Mario(hearts), 125, 700);
-        
-        for(int i = 0; i < hearts.length; i++) {
-        addObject(hearts[i],i*40+25,20);
-        }
-
+        addObject(new Mario(), 125, 700);
     }
 }

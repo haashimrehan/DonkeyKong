@@ -8,11 +8,12 @@ public class Mario extends Actor
 
     public Heart[] hearts = new Heart[Lives];
 
-    public Mario(Heart[] hearts) {
-        this.hearts = hearts;
-    }
+    protected void addedToWorld(World world){
 
-    public Mario() {
+        for(int i = 0; i < hearts.length; i++) {
+            hearts[i] = new Heart();
+            getWorld().addObject(hearts[i],i*40+25,20);
+        }
 
     }
 

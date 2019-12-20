@@ -18,7 +18,4 @@ public class Heart extends Actor
         // Add your action code here.
     }    
 
-    public void setLoc(int x, int y) {
-        setLocation(x,y);
-    }
 }

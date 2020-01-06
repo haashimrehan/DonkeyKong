@@ -4,7 +4,7 @@ public class Mario extends Actor
     String[] imageNames = {"MarioStandingStillRight.png","MarioRunLeft.png","MarioRunRight.png"};  
     int speed;
     long lastTime;
-    int Lives = 3;
+    int Lives = 3; 
     public Heart[] hearts = new Heart[Lives];
     protected void addedToWorld(World world){
 

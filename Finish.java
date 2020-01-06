@@ -15,6 +15,7 @@ public class Finish extends World
      */
     public Finish()
     {    
+        String[] imageNames = {"MarioStandingStillRight.png","MarioRunLeft.png","MarioRunRight.png"}; 
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 800, 1); 
         addObject(new Floor2(), 125, 1000);
@@ -25,6 +26,7 @@ public class Finish extends World
         addObject(new Floor2(), 1375, 1000);
         addObject(new Princess(), 145, 940);
         addObject(new Mario(), 85, 940);
-        showText("YOU WIN", 750, 600);
+        //setImage(imageNames[0]);
+        showText("YOU WIN", 250, 250);
     }
 }

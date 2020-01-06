@@ -16,7 +16,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class initialScreen extends World
 {
-
+    String[] initialImages = {"DonkeyKongLogo[1].png", "DKAngryIdol.png"};  
     /**
      * Constructor for objects of class initialScreen.
      * 
@@ -25,15 +25,14 @@ public class initialScreen extends World
     int buttonY = 0; 
     int buttonW = 270; 
     int buttonH = 50; 
-    
-    int buttonX = (width)/2;
- 
+    int gameScreen = 0; 
     
     
     public initialScreen(){    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        text("Hello!", 20, 40); 
+        showText("Hello!", 20, 40); 
     }
+    
     
 }

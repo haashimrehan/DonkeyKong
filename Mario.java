@@ -6,7 +6,7 @@ public class Mario extends Actor
     long lastTime;
     int Lives = 3;
     public Heart[] hearts = new Heart[Lives];
-
+    //Mr. P is showing Dean gitHub
     protected void addedToWorld(World world){
 
         for(int i = 0; i < hearts.length; i++) {

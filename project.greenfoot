@@ -9,7 +9,7 @@ class.Floor2.image=donkey-kong_standing2.png
 class.Heart.image=Heart.png
 class.Mario.image=MarioStandingStillRight.png
 class.Princess.image=princesss\ persson.jpg
-class.initialScreen.image=board.jpg
+class.initialScreen.image=startScreen.png
 dependency1.from=BackGround1
 dependency1.to=DK
 dependency1.type=UsesDependency
@@ -61,6 +61,7 @@ dependency8.type=UsesDependency
 dependency9.from=Coin
 dependency9.to=Mario
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=739
 editor.fx.0.width=816
 editor.fx.0.x=232
@@ -68,6 +69,15 @@ editor.fx.0.y=82
 height=985
 package.numDependencies=17
 package.numTargets=11
+=======
+editor.fx.0.height=1000
+editor.fx.0.width=1296
+editor.fx.0.x=-8
+editor.fx.0.y=-8
+height=1000
+package.numDependencies=15
+package.numTargets=10
+>>>>>>> 75f61af48dcc21296e93141f9b3808d70a5e2b7f
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -168,7 +178,14 @@ target9.width=80
 target9.x=190
 target9.y=130
 version=3.0.0
+<<<<<<< HEAD
 width=1068
 world.lastInstantiated=BackGround1
 xPosition=0
 yPosition=0
+=======
+width=1296
+world.lastInstantiated=initialScreen
+xPosition=-8
+yPosition=-8
+>>>>>>> 75f61af48dcc21296e93141f9b3808d70a5e2b7f

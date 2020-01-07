@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.awt.Toolkit;
 /**
  * Write a description of class initialScreen here.
  * A subclass for the initial menu screen
@@ -16,7 +16,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class initialScreen extends World
 {
-    String[] initialImages = {"DonkeyKongLogo[1].png", "DKAngryIdol.png"};  
+    private static final int w = (int)(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.80);
+    private static final int h = (int)(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.80);
+    
+    String[] initialImages = {"DonkeyKongLogo[1].png", "DKAngryIdol.png", "STARTbutton.png"};  
+    
     /**
      * Constructor for objects of class initialScreen.
      * 
@@ -25,15 +29,22 @@ public class initialScreen extends World
     int buttonY = 0; 
     int buttonW = 270; 
     int buttonH = 50; 
-    int width = 600;
-    int height = 400;
+    //int width = 600;
+    //int height = 400;
     int gameScreen = 0; 
-    int buttonX = width/2; 
+    //int buttonX = width/2; 
     
+    public void act()
+    {
+        
+    }
     public initialScreen(){    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
-        showText("Hello!", 20, 40); 
+        super(w, h, 1); 
+       //GreenfootImage image = getImage();
+       //image.scale(200,50);
+      // setImage(image);
+       
     }
     
     

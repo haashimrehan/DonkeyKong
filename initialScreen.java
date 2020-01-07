@@ -25,8 +25,10 @@ public class initialScreen extends World
     int buttonY = 0; 
     int buttonW = 270; 
     int buttonH = 50; 
+    int width = 600;
+    int height = 400;
     int gameScreen = 0; 
-    
+    int buttonX = width/2; 
     
     public initialScreen(){    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.

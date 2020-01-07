@@ -1,8 +1,11 @@
 import greenfoot.*;
 public class Mario extends Actor
 {
-    String[] imageNames = {"MarioStandingStillRight.png","MarioRunLeft.png","MarioRunRight.png"};  
+    boolean changeImage = false;
+    String[] imageNames = {"MarioStandingStillRight.png","MarioWalkLeft.png","MarioWalkRight.png","MarioStandingStill.png" };  
+
     int speed;
+    long frameCount = 0;
     long lastTime;
     int Lives = 3; 
     public Heart[] hearts = new Heart[Lives];
@@ -17,6 +20,7 @@ public class Mario extends Actor
 
     public void act() 
     {
+        frameCount++;
 
         speed = speed + 1;
         setLocation( getX(), getY() + speed);
@@ -68,8 +72,12 @@ public class Mario extends Actor
             lastTime = System.currentTimeMillis();
             }
             } */
+            if (changeImage) {
+                setImage(imageNames[1]);
+            } else {
+                setImage(imageNames[0]);}
+            changeImage = !changeImage;
 
-            setImage(imageNames[1]);
             while(isTouching(Floor.class))
             {
                 move(1);
@@ -77,8 +85,18 @@ public class Mario extends Actor
         } else {
             if(Greenfoot.isKeyDown("right"))
             {
+                if (frameCount %20 ==0) {
+                    changeImage = !changeImage;
+                }
+                if(changeImage) {
+                    setImage(imageNames[2]);
+                }         else {
+                    setImage(imageNames[0]);
+                }
+
+                
                 move(5);
-                setImage(imageNames[2]);
+                // setImage(imageNames[2]);
                 while(isTouching(Floor.class))
                 {
                     move(-1);

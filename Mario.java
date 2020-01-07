@@ -2,7 +2,7 @@ import greenfoot.*;
 public class Mario extends Actor
 {
     boolean changeImage = false;
-    String[] imageNames = {"MarioStandingStillRight.png","MarioRunLeft.png","MarioRunRight.png","MarioStandingStill.png" };  
+    String[] imageNames = {"MarioStandingStillRight.png","MarioWalkLeft.png","MarioWalkRight.png","MarioStandingStill.png" };  
     int speed;
     long frameCount = 0;
     long lastTime;

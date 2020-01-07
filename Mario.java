@@ -6,7 +6,7 @@ public class Mario extends Actor
     int speed;
     long frameCount = 0;
     long lastTime;
-    int Lives = 3;
+    int Lives = 3; 
     public Heart[] hearts = new Heart[Lives];
     protected void addedToWorld(World world){
 

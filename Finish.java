@@ -20,11 +20,6 @@ public class Finish extends World
         super(800, 800, 1); 
          String[] imageNames = {"MarioStandingStillRight.png","MarioRunLeft.png","MarioRunRight.png"}; 
 
-    {   
-        super(800, 800, 1); 
-        String[] imageNames = {"MarioStandingStillRight.png","MarioRunLeft.png","MarioRunRight.png"}; 
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        
         addObject(new Floor2(), 125, 1000);
         addObject(new Floor2(), 375, 1000);
         addObject(new Floor2(), 625, 1000);

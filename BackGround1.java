@@ -23,10 +23,10 @@ public class BackGround1 extends World
         addObject(new Floor(), 875, 781);
         addObject(new Mario(), 125, 700);
         addObject(score, 100, 500);
-        
-        GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
-        backgroundMusic.setVolume(5);
-        backgroundMusic.playLoop();
+        score.resetScore();
+       // GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
+       // backgroundMusic.setVolume(5);
+       // backgroundMusic.playLoop();
         
         double[][] screenCoinGrid = new double[9][9];
         for(int i = 0; i < 9; i++) {

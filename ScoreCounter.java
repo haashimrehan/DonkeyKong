@@ -20,4 +20,8 @@ public class ScoreCounter extends Actor
     public void newScore() {
         currentScore++;
     }
+    
+    public void resetScore() {
+        currentScore = 0;
+    }
 }

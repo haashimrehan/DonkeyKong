@@ -14,9 +14,9 @@ public class Coin extends Actor
      */
     public void act() 
     {
-
         if(isTouching(Mario.class)) {
-            
+           getWorld().removeObject(this);
+           BackGround1.addScore();
         }
     }    
 }

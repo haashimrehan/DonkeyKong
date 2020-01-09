@@ -19,7 +19,7 @@ public class initialScreen extends World
     private static final int w = (int)(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.80);
     private static final int h = (int)(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.80);
     
-    String[] initialImages = {"DonkeyKongLogo[1].png", "DKAngryIdol.png", "STARTbutton.png"};  
+    String[] initialImages = {"DonkeyKongLogo[1].png", "DKAngryIdol.png", "pressEnter.png"};  
     
     /**
      * Constructor for objects of class initialScreen.
@@ -34,18 +34,20 @@ public class initialScreen extends World
     int gameScreen = 0; 
     //int buttonX = width/2; 
     
-    public void act()
-    {
-        
+    public void act(){
+               if (Greenfoot.isKeyDown("enter"))
+        {
+         Greenfoot.setWorld(new BackGround1());
+       }
     }
     public initialScreen(){    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(w, h, 1); 
-       //GreenfootImage image = getImage();
-       //image.scale(200,50);
-      // setImage(image);
-       
+        GreenfootImage bg = new GreenfootImage("startScreen.png");
+         bg.scale(getWidth(), getHeight());
+         setBackground(bg); 
+         addObject(new pressEnterText(), 515, 560);
+         
+
     }
-    
-    
 }

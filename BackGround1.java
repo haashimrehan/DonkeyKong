@@ -21,7 +21,9 @@ public class BackGround1 extends World
         addObject(new Floor(), 375, 781);
         addObject(new Floor(), 625, 781);
         addObject(new Floor(), 875, 781);
+         addObject(new Ladder(), 300,675);
         addObject(new Mario(), 125, 700);
+       
         addObject(score, 100, 500);
         score.resetScore();
        // GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");

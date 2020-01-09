@@ -23,7 +23,8 @@ public class Mario extends Actor
         frameCount++;
 
         speed = speed + 1;
-        setLocation( getX(), getY() + speed);
+       setLocation( getX(), getY() + speed);
+
         getWorld().showText("Lives : "+ Lives +"",1450, 50);
         if(isTouching(Barrel.class))
         {

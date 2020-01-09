@@ -1,6 +1,6 @@
 #Greenfoot project file
 class.BackGround1.image=board.jpg
-class.Barrel.image=Donkey_Kong_Classic_NES_Artwork21cardioawyeahproduction1738imlikeheywhatsuphello.png
+class.Barrel.image=newDonkey_Kong_Classic_NES_Artwork21cardioawyeahproduction1738imlikeheywhatsuphello.png
 class.Coin.image=PixelCoin\ good.png
 class.DK.image=DKIdol.png
 class.Finish.image=board.jpg
@@ -67,10 +67,10 @@ dependency8.type=UsesDependency
 dependency9.from=Finish
 dependency9.to=Mario
 dependency9.type=UsesDependency
-editor.fx.0.height=739
-editor.fx.0.width=816
-editor.fx.0.x=256
-editor.fx.0.y=128
+editor.fx.0.height=1000
+editor.fx.0.width=1296
+editor.fx.0.x=-8
+editor.fx.0.y=-8
 height=991
 package.numDependencies=19
 package.numTargets=12

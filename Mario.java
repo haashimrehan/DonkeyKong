@@ -10,7 +10,7 @@ public class Mario extends Actor
     int Lives = 3; 
     public Heart[] hearts = new Heart[Lives];
     protected void addedToWorld(World world){
-
+        getWorld().showText("Player 1",hearts.length*50+30,20);
         for(int i = 0; i < hearts.length; i++) {
             hearts[i] = new Heart();
             getWorld().addObject(hearts[i],i*40+25,20);
@@ -25,16 +25,16 @@ public class Mario extends Actor
         speed = speed + 1;
         setLocation( getX(), getY() + speed);
         getWorld().showText("Lives : "+ Lives +"",1450, 50);
+                 if(Lives == 0)
+        {
+            getWorld().removeObject(this);
+        }
+        else {
         if(isTouching(Barrel.class))
         {
             removeTouching(Barrel.class);
             getWorld().removeObject(hearts[Lives-1]);
             Lives = Lives - 1;
-        }
-        if(Lives == 0)
-        {
-            getWorld().showText("GAME OVER", 750, 600);
-            Greenfoot.stop();
         }
         if(speed > 0)
         {
@@ -109,5 +109,6 @@ public class Mario extends Actor
         {
             speed = 50;
         }
+    }
     } 
 }

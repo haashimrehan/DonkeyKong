@@ -8,6 +8,7 @@ public class Mario extends Actor
     long frameCount = 0;
     long lastTime;
     int Lives = 3; 
+    boolean isAlive = true;
     public Heart[] hearts = new Heart[Lives];
     protected void addedToWorld(World world){
         getWorld().showText("Player 1",hearts.length*50+30,20);
@@ -28,6 +29,7 @@ public class Mario extends Actor
                  if(Lives == 0)
         {
             getWorld().removeObject(this);
+            isAlive = false;
         }
         else {
         if(isTouching(Barrel.class))
@@ -114,4 +116,7 @@ public class Mario extends Actor
         }
     }
     } 
+    public boolean getBool() {
+        return isAlive;
+    }
 }

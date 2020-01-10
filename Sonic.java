@@ -12,6 +12,7 @@ public class Sonic extends Actor
     long frameCount = 0;
     long lastTime;
     int Lives = 2; 
+    boolean isAlive = true;
     public Heart[] hearts = new Heart[Lives];
         protected void addedToWorld(World world){
         getWorld().showText("Player 2",hearts.length*50+30,60);
@@ -29,6 +30,7 @@ public class Sonic extends Actor
          if(Lives == 0)
         {
             getWorld().removeObject(this);
+            isAlive = false;
         }
         else {
         if(isTouching(Barrel.class))
@@ -80,4 +82,7 @@ public class Sonic extends Actor
         }
     }
     }    
+       public boolean getBool() {
+        return isAlive;
+    }
 }

@@ -72,11 +72,14 @@ public class Mario extends Actor
             lastTime = System.currentTimeMillis();
             }
             } */
-            if (changeImage) {
-                setImage(imageNames[1]);
-            } else {
-                setImage(imageNames[0]);}
-            changeImage = !changeImage;
+     if (frameCount %20 ==0) {
+                    changeImage = !changeImage;
+                }
+                if(changeImage) {
+                    setImage(imageNames[1]);
+                }         else {
+                    setImage(imageNames[3]);
+                }
 
             while(isTouching(Floor.class))
             {

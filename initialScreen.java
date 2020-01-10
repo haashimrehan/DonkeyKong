@@ -16,6 +16,9 @@ import java.awt.Toolkit;
  */
 public class initialScreen extends World
 {
+    boolean changeImage= false;
+    long frameCount = 0; 
+    long lastTime;
     private static final int w = (int)(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.80);
     private static final int h = (int)(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.80);
     
@@ -39,6 +42,7 @@ public class initialScreen extends World
         {
          Greenfoot.setWorld(new BackGround1());
        }
+
     }
     public initialScreen(){    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -47,6 +51,8 @@ public class initialScreen extends World
          bg.scale(getWidth(), getHeight());
          setBackground(bg); 
          addObject(new pressEnterText(), 515, 560);
+         addObject(new Mario(), 150, 500);
+         addObject(new Floor(), 200, 300);
          
 
     }

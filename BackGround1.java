@@ -9,6 +9,10 @@ import greenfoot.*;
 public class BackGround1 extends World
 {
     static ScoreCounter score = new ScoreCounter();
+    static ScoreCounter sonicScore = new Player2Score();
+    public void act() {
+        
+    }
     public BackGround1()
     {    
         super(800, 800, 1); 
@@ -22,8 +26,12 @@ public class BackGround1 extends World
         addObject(new Floor(), 625, 781);
         addObject(new Floor(), 875, 781);
         addObject(new Mario(), 125, 700);
+        addObject(new Sonic(), 200,  700);
         addObject(score, 100, 500);
+        addObject(sonicScore, 100, 450);
         score.resetScore();
+        sonicScore.resetScore();
+        
        // GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
        // backgroundMusic.setVolume(5);
        // backgroundMusic.playLoop();
@@ -40,5 +48,8 @@ public class BackGround1 extends World
     }
     public static void addScore() {
         score.newScore();
+    }
+    public static void addScore2() {
+        sonicScore.newScore();
     }
 }

@@ -17,12 +17,12 @@ public class ScoreCounter extends Actor
     public void act() 
     {
         setImage(new GreenfootImage("Player 1" + " Score: " + currentScore, 24, Color.WHITE, Color.BLACK));
-    }  
+    }  //updates the score whenever a coin is touched
     public void newScore() {
         currentScore++;
-    }
+    } //method to use in the world class to add score
     
     public void resetScore() {
         currentScore = 0;
-    }
+    } //resets score when called
 }

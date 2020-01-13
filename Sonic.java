@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sonic extends Actor
 {
+    //I used Haashims live class and just took one heart off for sonic
+    //everything else is identical to marios code, but i adjusted sonics speed
+    //so he is a lot faster than sonic
     int speed;
     long frameCount = 0;
     long lastTime;

@@ -15,7 +15,8 @@ public class BackGround1 extends World
     public void act() {
         if(m.getBool() == false && s.getBool() == false) {
             Greenfoot.setWorld(new Finish());
-        }
+        } //if mario or sonic are ever both dead it will call an
+        //instanciation of the finish screen class
     }
     public BackGround1()
     {    
@@ -32,13 +33,15 @@ public class BackGround1 extends World
         addObject(m, 125, 700);
         addObject(s, 200,  700);
         addObject(score, 100, 500);
-        addObject(sonicScore, 100, 450);
+        addObject(sonicScore, 100, 450); //adding all objects to world
         score.resetScore();
-        sonicScore.resetScore();
+        sonicScore.resetScore(); //this will reset mario and sonics score(when reset)
         
        // GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
        // backgroundMusic.setVolume(5);
        // backgroundMusic.playLoop();
+       
+       //background music that will keep looping
         
         double[][] screenCoinGrid = new double[9][9];
         for(int i = 0; i < 9; i++) {
@@ -48,12 +51,13 @@ public class BackGround1 extends World
                 addObject(new Coin(), 50+ i*75, 50 + j*75);
             }
         }
-        }
+        }//this randomly generates the coins throughout the world
+        //with an offset so it doesn't spawn on DK
     }
     public static void addScore() {
         score.newScore();
-    }
+    } //add score method
     public static void addScore2() {
         sonicScore.newScore();
-    }
+    } //add sore method for sonic
 }

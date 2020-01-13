@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class SonicFloor extends Actor
+public class SonicFloor extends Floor
 {
     /**
      * Act - do whatever the SonicFloor wants to do. This method is called whenever

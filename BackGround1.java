@@ -10,11 +10,13 @@ public class BackGround1 extends World
 {
     static ScoreCounter score = new ScoreCounter();
     static ScoreCounter sonicScore = new Player2Score();
-    PowerUps p = new PowerUps();
-    
+    long frameCount = 0;
     public void act() {
-        
-    }
+        if (frameCount %10 == 0) {
+                addObject(new PowerUp(), Greenfoot.getRandomNumber(800),Greenfoot.getRandomNumber(800));
+            }
+            frameCount++;
+            }
     public BackGround1()
     {    
         super(800, 800, 1); 
@@ -34,7 +36,7 @@ public class BackGround1 extends World
         addObject(sonicScore, 100, 450);
         score.resetScore();
         sonicScore.resetScore();
-        
+
        // GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
        // backgroundMusic.setVolume(5);
        // backgroundMusic.playLoop();
@@ -49,7 +51,7 @@ public class BackGround1 extends World
         }
         }
 
-        p.update();
+    //    p.update();
         
        //  addObject(new PowerUp(),5,5); 
     }

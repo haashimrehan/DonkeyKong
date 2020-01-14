@@ -10,12 +10,15 @@ public class BackGround1 extends World
 {
     static ScoreCounter score = new ScoreCounter();
     static ScoreCounter sonicScore = new Player2Score();
+    PowerUps p = new PowerUps();
+    
     public void act() {
         
     }
     public BackGround1()
     {    
         super(800, 800, 1); 
+       
         addObject(new DK(), 150, 150);
         addObject(new Floor(), 125, 219);
         addObject(new Floor(), 375, 219);
@@ -45,6 +48,10 @@ public class BackGround1 extends World
             }
         }
         }
+
+        p.update();
+        
+       //  addObject(new PowerUp(),5,5); 
     }
     public static void addScore() {
         score.newScore();

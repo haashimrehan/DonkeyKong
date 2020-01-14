@@ -18,5 +18,9 @@ public class Coin extends Actor
            getWorld().removeObject(this);
            BackGround1.addScore();
         }
+        else if(isTouching(Sonic.class)) {
+           getWorld().removeObject(this);
+           BackGround1.addScore2();
+        }
     }    
 }

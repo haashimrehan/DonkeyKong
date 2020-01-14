@@ -52,7 +52,7 @@ public class initialScreen extends World
          setBackground(bg); 
          addObject(new pressEnterText(), 515, 560);
          addObject(new Mario(), 150, 500);
-         addObject(new Floor(), 200, 300);
+
          
 
     }

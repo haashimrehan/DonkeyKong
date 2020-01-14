@@ -8,34 +8,13 @@ public class initialScreenMario extends Actor
     long frameCount = 0;
     long lastTime; 
 
-
     public void act() 
     {
         frameCount++;
 
         speed = speed + 1;
-        setLocation( getX(), getY() + speed);
-
-        if(speed > 0)
-        {
-            while(isTouching(Floor.class))
-            {
-                speed = 0;
-                setLocation(getX(), getY() - 1);
-                if(Greenfoot.isKeyDown("up"))
-                {
-                    speed = - 27;
-                }
-            }
-        }
-        if(speed <= 0)
-        {
-            while(isTouching(Floor.class))
-            {
-                speed = 0;
-                setLocation(getX(), getY() + 1);
-            }
-        }    
+        setLocation(getX(), getY() + speed);
+ 
         if(Greenfoot.isKeyDown("left"))
         {
             move(-5);
@@ -49,10 +28,6 @@ public class initialScreenMario extends Actor
                     setImage(imageNames[3]);
                 }
 
-            while(isTouching(Floor.class))
-            {
-                move(1);
-            } 
         } else {
             if(Greenfoot.isKeyDown("right"))
             {
@@ -65,13 +40,9 @@ public class initialScreenMario extends Actor
                     setImage(imageNames[0]);
                 }
 
-                
                 move(5);
                 // setImage(imageNames[2]);
-                while(isTouching(Floor.class))
-                {
-                    move(-1);
-                }
+
             } else{
                 setImage(imageNames[0]);
             }

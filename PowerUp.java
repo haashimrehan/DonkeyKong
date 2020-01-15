@@ -15,6 +15,9 @@ public class PowerUp extends Actor
     public void act() 
     {
         this.setImage("Heart.png");
+           if (this.isTouching(Mario.class) || this.isTouching(Sonic.class)) {
+        getWorld().removeObject(this);
+        }
         // Add your action code here.
     }    
 }

@@ -12,7 +12,7 @@ public class BackGround1 extends World
     static ScoreCounter sonicScore = new Player2Score();
     long frameCount = 0;
     public void act() {
-        if (frameCount %10 == 0) {
+        if (frameCount %100 == 0) {
                 addObject(new PowerUp(), Greenfoot.getRandomNumber(800),Greenfoot.getRandomNumber(800));
             }
             frameCount++;

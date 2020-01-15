@@ -13,7 +13,7 @@ public class SonicLeel extends World
     private int worldLength = 5000;
     private int random;
     
-    static ScoreCounter score = new ScoreCounter();
+    static Tube tube = new Tube();
     static ScoreCounter sonicScore = new Player2Score();
     static Sonic s = new Sonic();
     public void act() {
@@ -30,12 +30,12 @@ public class SonicLeel extends World
         scroller = new Scroller(this, backImage, worldLength, height);
         scrollActor = s;
         addObject(scrollActor, 20, (height-120));
+        addObject(tube, 4700, 550);
         for(int i = 0; i <= worldLength; i += 200)// This is for the basic floor 
                 addObject(new Floor2(), i, height-50);
         for(int i = 0; i < worldLength; i += 1000)// This is for the secondary floor, change after += to change the distance. 
                 addObject(new Floor(), i, height/2);  
         
-        score.resetScore();
         sonicScore.resetScore();
         
        // GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
@@ -63,9 +63,6 @@ public class SonicLeel extends World
         dsy = 0;
         scroller.scroll(dsx, dsy);
     }
-        public static void addScore() {
-        score.newScore();
-    } //add score method
     public static void addScore2() {
         sonicScore.newScore();
     } //add sore method for sonic

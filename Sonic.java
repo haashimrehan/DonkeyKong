@@ -79,16 +79,19 @@ public class Sonic extends Actor
                 {
                     move(-2);
                 }
-                if(frameCount%6 == 0) {
+                if(frameCount%7 == 0) {
                     animationCount++;
-                    
                     if(animationCount < 8) {
                         setImage(sonicRight[animationCount]);
                     }
                     else {
-                        animationCount = 6;
+                        animationCount = 5;
                     }
                 }
+            }
+            else {
+                animationCount = 0;
+                setImage(sonicRight[0]);
             }
         }
         if(Greenfoot.isKeyDown("s"))

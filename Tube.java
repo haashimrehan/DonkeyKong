@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class SonicFloor here.
+ * Write a description of class Tube here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class SonicFloor extends Floor
+public class Tube extends Actor
 {
     /**
-     * Act - do whatever the SonicFloor wants to do. This method is called whenever
+     * Act - do whatever the Tube wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 

@@ -51,7 +51,7 @@ public class initialScreen extends World
          bg.scale(getWidth(), getHeight());
          setBackground(bg); 
          addObject(new pressEnterText(), 515, 560);
-         addObject(new Mario(), 150, 500);
+         addObject(new initialScreenMario(), 450, 500);
 
          
 

@@ -50,9 +50,10 @@ public class initialScreen extends World
         GreenfootImage bg = new GreenfootImage("startScreen.png");
          bg.scale(getWidth(), getHeight());
          setBackground(bg); 
-         addObject(new pressEnterText(), 515, 560);
+         //addObject(new pressEnterText(), 515, 560);
          addObject(new initialScreenMario(), 450, 500);
-
+         addObject(new startButton(), 515, 500);
+         addObject(new howToPlayButton(), 515, 550);
          
 
     }

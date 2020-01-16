@@ -10,34 +10,50 @@ public class SonicLeel extends World
     public static int height = (int)(screenSize.getHeight()/1.4);
     private Scroller scroller;
     private Actor scrollActor;
+   static Sonic s = new Sonic();
+   static Heart[] hearts = new Heart[s.startingLives];
     private int worldLength = 5000;
     private int random;
+    public int SonicHealth = 2;
     
     static Tube tube = new Tube();
     static ScoreCounter sonicScore = new Player2Score();
-    static Sonic s = new Sonic();
+    
+    
     public void act() {
         scroll();
         if(s.getBool() == false) {
             Greenfoot.setWorld(new Finish());
         } //if mario or sonic are ever both dead it will call an
         //instanciation of the finish screen class
+        for(int i = 0; i < s.startingLives; i++) {
+                if(i > s.lives){
+                    hearts[i].setLocation(-200,60);
+                } else {
+                hearts[i].setLocation(i*40+25,60);
+            }
+        }
+
     }
     public SonicLeel()
     {    // Scales the size of the screen
         super(width, height, 1, false);
+        addObject(sonicScore, 100, 450);
+        sonicScore.resetScore();
         GreenfootImage backImage = new GreenfootImage("GameBackground.png");
         scroller = new Scroller(this, backImage, worldLength, height);
         scrollActor = s;
         addObject(scrollActor, 20, (height-120));
         addObject(tube, 4700, 550);
+        for(int i = 0; i < hearts.length; i++) {
+                hearts[i] = new Heart();
+                addObject(hearts[i],i*40+25,60);
+        }
         for(int i = 0; i <= worldLength; i += 200)// This is for the basic floor 
-                addObject(new Floor2(), i, height-50);
+            addObject(new Floor2(), i, height-50);
         for(int i = 0; i < worldLength; i += 1000)// This is for the secondary floor, change after += to change the distance. 
                 addObject(new Floor(), i, height/2);  
-        
-        sonicScore.resetScore();
-        
+       
        // GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
        // backgroundMusic.setVolume(5);
        // backgroundMusic.playLoop();
@@ -63,7 +79,17 @@ public class SonicLeel extends World
         dsy = 0;
         scroller.scroll(dsx, dsy);
     }
+    public static Heart[] numOfHearts() {
+        return s.heartCount();
+    }
+    public static int returnLives() {
+        return s.sonicLives();
+    }
     public static void addScore2() {
         sonicScore.newScore();
     } //add sore method for sonic
+    
+    public static void sonicChangeHealth() {
+        
+    }
 }

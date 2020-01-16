@@ -12,22 +12,18 @@ public class Sonic extends Actor
     //everything else is identical to marios code, but i adjusted sonics speed
     //so he is a lot faster than sonic
     int speed;
-    int animationCount;
-    long frameCount = 0;
-    long lastTime;
-    int lives = 2; 
+    public int heartWidth;
+    public int heartHeight;
+    private int animationCount;
+    private long frameCount = 0;
+    private long lastTime;
+    public int startingLives = 10;
+    public int lives = 2; 
     GreenfootImage[] sonicRight = {new GreenfootImage("PNGSONIC1.png"), new GreenfootImage("PNGSONIC2.png"), new GreenfootImage("PNGSONIC3.png"), new GreenfootImage("PNGSONIC4.png"), new GreenfootImage("PNGSONIC5.png"), new GreenfootImage("PNGSONIC6.png"), new GreenfootImage("PNGSONIC7.png"), new GreenfootImage("PNGSONIC8.png"), new GreenfootImage("PNGSONIC9.png"), new GreenfootImage("PNGSONIC10.png")};
     boolean isAlive = true;
     public Heart[] hearts = new Heart[lives];
-        protected void addedToWorld(World world){
-        getWorld().showText("Player 2",hearts.length*50+30,60);
-        for(int i = 0; i < hearts.length; i++) {
-            hearts[i] = new Heart();
-            getWorld().addObject(hearts[i],i*40+25,60);
-        }
-    }
-    public void act() 
-    {
+    public void act(){
+    getWorld().showText("Player 2",hearts.length*50+30,60);
         frameCount++;
         speed = speed + 2;
         setLocation( getX(), getY() + speed);
@@ -102,5 +98,11 @@ public class Sonic extends Actor
     }    
        public boolean getBool() {
         return isAlive;
+    }
+    public int sonicLives() {
+        return lives;
+    }
+    public Heart[] heartCount() {
+        return hearts;
     }
 }

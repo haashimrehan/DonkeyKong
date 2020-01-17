@@ -10,13 +10,12 @@ public class SonicLeel extends World
     public static int height = (int)(screenSize.getHeight()/1.4);
     private Scroller scroller;
     private Actor scrollActor;
-   static Sonic s = new Sonic();
-   static Heart[] hearts = new Heart[s.startingLives];
+    static Sonic s = new Sonic();
+    static Heart[] hearts = new Heart[s.startingLives];
     private int worldLength = 5000;
     private int random;
     public int SonicHealth = 2;
-    
-    static Tube tube = new Tube();
+    Tube tube = new Tube();
     static ScoreCounter sonicScore = new Player2Score();
     
     
@@ -29,8 +28,10 @@ public class SonicLeel extends World
         for(int i = 0; i < s.startingLives; i++) {
                 if(i > s.lives){
                     hearts[i].setLocation(-200,60);
+                    sonicScore.setLocation(100, 450);
                 } else {
                 hearts[i].setLocation(i*40+25,60);
+                sonicScore.setLocation(i*40+25, 450);
             }
         }
 
@@ -63,7 +64,7 @@ public class SonicLeel extends World
             for(int j = 0; j < 66; j++) {
             screenCoinGrid[i][i] = ((int)(Math.random() * (20 + 1)));
             if(screenCoinGrid[i][i] == 1) {
-                addObject(new Coin(), 50+ i*75, 50 + j*75);
+                addObject(new Coin(), i*75 - 100, j*75 - 100);
             }
         }
  

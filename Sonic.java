@@ -18,16 +18,19 @@ public class Sonic extends Actor
     private long frameCount = 0;
     private long lastTime;
     public int startingLives = 10;
-    public int lives = 2; 
+    public int lives = 1; 
     GreenfootImage[] sonicRight = {new GreenfootImage("PNGSONIC1.png"), new GreenfootImage("PNGSONIC2.png"), new GreenfootImage("PNGSONIC3.png"), new GreenfootImage("PNGSONIC4.png"), new GreenfootImage("PNGSONIC5.png"), new GreenfootImage("PNGSONIC6.png"), new GreenfootImage("PNGSONIC7.png"), new GreenfootImage("PNGSONIC8.png"), new GreenfootImage("PNGSONIC9.png"), new GreenfootImage("PNGSONIC10.png")};
     boolean isAlive = true;
     public Heart[] hearts = new Heart[lives];
     public void act(){
-    getWorld().showText("Player 2",hearts.length*50+30,60);
+    getWorld().showText("Player 2",hearts.length*50+100,60);
         frameCount++;
         speed = speed + 2;
         setLocation( getX(), getY() + speed);
         getWorld().showText("Lives : "+ lives +"",1450, 50);
+            if(isTouching(Tube.class)) {
+        Greenfoot.setWorld(new BackGround1());
+    }
          if(lives == 0)
         {
             getWorld().removeObject(this);
@@ -42,7 +45,7 @@ public class Sonic extends Actor
         }
         if(speed > 0)
         {
-            while(isTouching(Floor.class))
+            while(isTouching(Floor.class) || isTouching(Tube.class))
             {
                 speed = 0;
                 setLocation(getX(), getY() - 1);
@@ -54,7 +57,7 @@ public class Sonic extends Actor
         }
         if(speed <= 0)
         {
-            while(isTouching(Floor.class))
+            while(isTouching(Floor.class) || isTouching(Tube.class))
             {
                 speed = 0;
                 setLocation(getX(), getY() + 2);
@@ -63,7 +66,7 @@ public class Sonic extends Actor
         if(Greenfoot.isKeyDown("a"))
         {
             move(-10);
-            while(isTouching(Floor.class))
+            while(isTouching(Floor.class) || isTouching(Tube.class))
             {
                 move(2);
             } 
@@ -71,7 +74,7 @@ public class Sonic extends Actor
             if(Greenfoot.isKeyDown("d"))
             {
                 move(10);
-                while(isTouching(Floor.class))
+                while(isTouching(Floor.class) || isTouching(Tube.class))
                 {
                     move(-2);
                 }

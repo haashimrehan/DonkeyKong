@@ -11,9 +11,9 @@ public class BackGround1 extends World
     static ScoreCounter score = new Player2Score();
     static ScoreCounter sonicScore = new Player2Score();
     static Mario m = new Mario();
-    static Sonic s = new Sonic();
+    static Sonic s2 = new Sonic();
     public void act() {
-        if(m.getBool() == false && s.getBool() == false) {
+        if(m.getBool() == false && s2.getBool() == false) {
             Greenfoot.setWorld(new Finish());
         } //if mario or sonic are ever both dead it will call an
         //instanciation of the finish screen class
@@ -31,7 +31,7 @@ public class BackGround1 extends World
         addObject(new Floor(), 625, 781);
         addObject(new Floor(), 875, 781);
         addObject(m, 125, 700);
-        addObject(s, 200,  700);
+        addObject(s2, 200,  700);
         addObject(sonicScore, 100, 450); //adding all objects to world
         addObject(sonicScore, 100, 450); //adding all objects to world
         sonicScore.resetScore(); //this will reset mario and sonics score(when reset)

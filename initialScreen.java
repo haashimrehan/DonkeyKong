@@ -52,8 +52,9 @@ public class initialScreen extends World
          setBackground(bg); 
          //addObject(new pressEnterText(), 515, 560);
          addObject(new initialScreenMario(), 450, 500);
-         addObject(new startButton(), 515, 500);
-         addObject(new howToPlayButton(), 515, 550);
+         addObject(new startButton(), 500, 570);
+         addObject(new howToPlayButton(), 200, 570);
+         addObject(new settingsButton(), 800, 570);
          
 
     }

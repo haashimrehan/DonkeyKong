@@ -14,13 +14,13 @@ public class howToPlayButton extends Actor
      */
     public void act() 
     {
-        if (Greenfoot.mousePressed(this))
+        if (Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new BackGround1());
+            Greenfoot.setWorld(new howToPlay());
         }
-        GreenfootImage image = getImage();
-        image.scale(150, 75);
-        setImage(image);
+        GreenfootImage howto = getImage();
+        howto.scale(300, 200);
+        setImage(howto);
     }
     // Add your action code here.
 }    

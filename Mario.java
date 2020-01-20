@@ -2,7 +2,7 @@ import greenfoot.*;
 public class Mario extends Actor
 {
     boolean changeImage = false;
-    String[] imageNames = {"MarioStandingStillRight.png","MarioWalkLeft.png","MarioWalkRight.png","MarioStandingStill.png" };  
+    String[] imageNames = {"MarioStandingStillRight.png","MarioWalkLeft.png","MarioWalkRight.png","MarioStandingStill.png","mariopixel.png","mariopixelCopy2.png" };  
 
     int speed;
     long frameCount = 0;
@@ -54,6 +54,7 @@ public class Mario extends Actor
             {
                 speed = 0;
                 setLocation(getX(), getY() + 1);
+               
             }
         }    
         if(Greenfoot.isKeyDown("left"))
@@ -85,7 +86,10 @@ public class Mario extends Actor
             {
                 move(1);
             } 
-        } else {
+        } 
+        
+        
+        else {
             if(Greenfoot.isKeyDown("right"))
             {
                 if (frameCount %20 ==0) {
@@ -112,6 +116,14 @@ public class Mario extends Actor
         {
             speed = 50;
         }
+                    if(Greenfoot.isKeyDown("up"))
+                {
+                    setImage(imageNames[4]);
+                }
+                if(Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("left"))
+                {
+                    setImage(imageNames[5]);
+                }
     }
     } 
 }

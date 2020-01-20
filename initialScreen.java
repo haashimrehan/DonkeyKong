@@ -18,7 +18,8 @@ public class initialScreen extends World
 {
     private static final int w = (int)(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.80);
     private static final int h = (int)(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.80);
-    
+    boolean changeImage = false;
+    long frameCount = 0;
     String[] initialImages = {"DonkeyKongLogo[1].png", "DKAngryIdol.png", "pressEnter.png"};  
     
     /**
@@ -35,11 +36,15 @@ public class initialScreen extends World
     //int buttonX = width/2; 
     
     public void act(){
+        frameCount++;
                if (Greenfoot.isKeyDown("enter"))
         {
          Greenfoot.setWorld(new BackGround1());
        }
+       
+        
     }
+   
     public initialScreen(){    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(w, h, 1); 
@@ -50,4 +55,6 @@ public class initialScreen extends World
          
 
     }
+    
+    
 }

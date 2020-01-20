@@ -14,8 +14,11 @@ import java.awt.Toolkit;
  * @Aaliyah
  * @version (a version number or a date)
  */
-public class initialScreen extends World
+public class InitialScreen extends World
 {
+    boolean changeImage= false;
+    long frameCount = 0; 
+    long lastTime;
     private static final int w = (int)(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.80);
     private static final int h = (int)(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.80);
     boolean changeImage = false;
@@ -41,17 +44,17 @@ public class initialScreen extends World
         {
          Greenfoot.setWorld(new BackGround1());
        }
-       
-        
     }
-   
-    public initialScreen(){    
+    public InitialScreen(){    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(w, h, 1); 
         GreenfootImage bg = new GreenfootImage("startScreen.png");
          bg.scale(getWidth(), getHeight());
          setBackground(bg); 
-         addObject(new pressEnterText(), 515, 560);
+         //addObject(new pressEnterText(), 515, 560);
+         addObject(new InitialScreenMario(), 450, 500);
+         addObject(new StartButton(), w/2, h/2+150);
+         addObject(new HowToPlayButton(), w/2-15, h/2+250);
          
 
     }

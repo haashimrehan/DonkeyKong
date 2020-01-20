@@ -29,6 +29,7 @@ public class Sonic extends Actor
          if(Lives == 0)
         {
             getWorld().removeObject(this);
+            
         }
         else {
         if(isTouching(Barrel.class))

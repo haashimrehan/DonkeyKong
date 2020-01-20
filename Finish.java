@@ -14,6 +14,7 @@ public class Finish extends World
      * Constructor for objects of class Finish.
      * 
      */
+    //press space to return to game
         public void act(){
                if (Greenfoot.isKeyDown("space"))
         {
@@ -23,7 +24,7 @@ public class Finish extends World
     }
     public Finish()
     {    
-       
+       //setting background image 
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(w, h, 1); 
         GreenfootImage bg = new GreenfootImage("board.jpg");

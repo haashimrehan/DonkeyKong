@@ -15,6 +15,8 @@ public class HowToPlay extends World
      * Constructor for objects of class howToPlay.
      * 
      */
+    
+    //if user preses space, goes back to initial screen
     public void act(){
                if (Greenfoot.isKeyDown("space"))
         {
@@ -24,9 +26,10 @@ public class HowToPlay extends World
     }
     public HowToPlay()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world
         super(w, h, 1);
-        //Adding images to explain rules
+        //adjusting screen size
+        //Adding a bunch of images onto how to play screen
         addObject(new HTPImage(), 100, 300); //coin
         addObject(new HTPImage2(),w/2, h/2+100); //controls
         addObject(new HTPTextMain(), w/2, 170);
@@ -38,7 +41,7 @@ public class HowToPlay extends World
         addObject(new HTPTexts(), 240, 550);
         addObject(new HTPBarrel(), 100, 540);
         addObject(new HTPkeys(), w/2, h/2 +75);
-        //setImage("howToPlay.png");
+
         
     }
 }

@@ -14,13 +14,13 @@ public class DK extends Actor
         {
             Greenfoot.setWorld(new Finish());
 
-            Greenfoot.stop();
+            //Greenfoot.stop();
         }
         else if(isTouching(Sonic.class))
         {
             Greenfoot.setWorld(new Finish());
 
-            Greenfoot.stop();
+            //Greenfoot.stop();
         }
         if(System.currentTimeMillis() - lastTime > 2500)
 

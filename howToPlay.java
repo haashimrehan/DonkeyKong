@@ -26,7 +26,7 @@ public class HowToPlay extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(w, h, 1);
-        //getHowToPlay().drawImage(new GreenfootImage("Text to display", 64, null, null), 40, 40);
+        //Adding images to explain rules
         addObject(new HTPImage(), 100, 300); //coin
         addObject(new HTPImage2(),w/2, h/2+100); //controls
         addObject(new HTPTextMain(), w/2, 170);

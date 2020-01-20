@@ -21,8 +21,7 @@ public class InitialScreen extends World
     long lastTime;
     private static final int w = (int)(Toolkit.getDefaultToolkit().getScreenSize().getWidth()*0.80);
     private static final int h = (int)(Toolkit.getDefaultToolkit().getScreenSize().getHeight()*0.80);
-    boolean changeImage = false;
-    long frameCount = 0;
+
     String[] initialImages = {"DonkeyKongLogo[1].png", "DKAngryIdol.png", "pressEnter.png"};  
     
     /**
@@ -54,7 +53,7 @@ public class InitialScreen extends World
          //addObject(new pressEnterText(), 515, 560);
          addObject(new InitialScreenMario(), 450, 500);
          addObject(new StartButton(), w/2, h/2+150);
-         addObject(new HowToPlayButton(), w/2-15, h/2+250);
+         addObject(new HowToPlayButton(), w/2-15, h/2+350);
          
 
     }

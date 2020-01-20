@@ -29,7 +29,11 @@ public class Mario extends Actor
         {
             getWorld().removeObject(this);
         }
+        
         else {
+            
+             
+                
         if(isTouching(Barrel.class))
         {
             removeTouching(Barrel.class);
@@ -116,14 +120,16 @@ public class Mario extends Actor
         {
             speed = 50;
         }
-                    if(Greenfoot.isKeyDown("up"))
+       
+           if(Greenfoot.isKeyDown("up"))
                 {
                     setImage(imageNames[4]);
                 }
                 if(Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("left"))
                 {
                     setImage(imageNames[5]);
-                }
+                }        
+                
     }
     } 
 }

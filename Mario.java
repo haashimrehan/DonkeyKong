@@ -10,9 +10,11 @@ public class Mario extends Actor
     int speed;
     long frameCount = 0; // set frame count (timer) to 0
     long lastTime;
-    int Lives = 3; 
-    
-    public Heart[] hearts = new Heart[Lives];
+
+    int lives = 3; 
+    boolean isAlive = true;
+    public Heart[] hearts = new Heart[lives];
+
     protected void addedToWorld(World world){
         getWorld().showText("Player 1",hearts.length*50+30,20);
         for(int i = 0; i < hearts.length; i++) {
@@ -29,10 +31,11 @@ public class Mario extends Actor
 
         speed = speed + 1; // set speed
         setLocation( getX(), getY() + speed);
-        getWorld().showText("Lives : "+ Lives +"",1450, 50);
-                 if(Lives == 0)
+        getWorld().showText("Lives : "+ lives +"",1450, 50);
+                 if(lives == 0)
         {
             getWorld().removeObject(this);
+            isAlive = false;
         }
         
         else {
@@ -42,8 +45,8 @@ public class Mario extends Actor
         if(isTouching(Barrel.class))
         {
             removeTouching(Barrel.class);
-            getWorld().removeObject(hearts[Lives-1]);
-            Lives = Lives - 1;
+            getWorld().removeObject(hearts[lives-1]);
+            lives = lives - 1;
         }
         if(speed > 0)
         {
@@ -143,4 +146,7 @@ public class Mario extends Actor
                 
     }
     } 
+    public boolean getBool() {
+        return isAlive;
+    }
 }

@@ -8,14 +8,19 @@ import greenfoot.*;
  */
 public class BackGround1 extends World
 {
-    static ScoreCounter score = new ScoreCounter();
+    static ScoreCounter score = new Player2Score();
     static ScoreCounter sonicScore = new Player2Score();
+    static Mario m = new Mario();
+    static Sonic s2 = new Sonic();
     public void act() {
-        
+        if(m.getBool() == false && s2.getBool() == false) {
+            Greenfoot.setWorld(new Finish());
+        } //if mario or sonic are ever both dead it will call an
+        //instanciation of the finish screen class
     }
     public BackGround1()
     {    
-        super(800, 800, 1); 
+        super(800, 800, 1);
         addObject(new DK(), 150, 150);
         addObject(new Floor(), 125, 219);
         addObject(new Floor(), 375, 219);
@@ -25,16 +30,17 @@ public class BackGround1 extends World
         addObject(new Floor(), 375, 781);
         addObject(new Floor(), 625, 781);
         addObject(new Floor(), 875, 781);
-        addObject(new Mario(), 125, 700);
-        addObject(new Sonic(), 200,  700);
-        addObject(score, 100, 500);
-        addObject(sonicScore, 100, 450);
-        score.resetScore();
-        sonicScore.resetScore();
+        addObject(m, 125, 700);
+        addObject(s2, 200,  700);
+        addObject(sonicScore, 100, 450); //adding all objects to world
+        addObject(sonicScore, 100, 450); //adding all objects to world
+        sonicScore.resetScore(); //this will reset mario and sonics score(when reset)
         
        // GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
        // backgroundMusic.setVolume(5);
        // backgroundMusic.playLoop();
+       
+       //background music that will keep looping
         
         double[][] screenCoinGrid = new double[9][9];
         for(int i = 0; i < 9; i++) {
@@ -44,12 +50,13 @@ public class BackGround1 extends World
                 addObject(new Coin(), 50+ i*75, 50 + j*75);
             }
         }
-        }
+        }//this randomly generates the coins throughout the world
+        //with an offset so it doesn't spawn on DK
     }
     public static void addScore() {
         score.newScore();
-    }
+    } //add score method
     public static void addScore2() {
         sonicScore.newScore();
-    }
+    } //add sore method for sonic
 }

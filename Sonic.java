@@ -8,39 +8,45 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sonic extends Actor
 {
+    //I used Haashims live class and just took one heart off for sonic
+    //everything else is identical to marios code, but i adjusted sonics speed
+    //so he is a lot faster than sonic
     int speed;
-    long frameCount = 0;
-    long lastTime;
-    int Lives = 2; 
-    public Heart[] hearts = new Heart[Lives];
-        protected void addedToWorld(World world){
-        getWorld().showText("Player 2",hearts.length*50+30,60);
-        for(int i = 0; i < hearts.length; i++) {
-            hearts[i] = new Heart();
-            getWorld().addObject(hearts[i],i*40+25,60);
-        }
-    }
-    public void act() 
-    {
+    public int heartWidth;
+    public int heartHeight;
+    private int animationCount;
+    private long frameCount = 0;
+    private long lastTime;
+    public int startingLives = 10;
+    public int lives = 1; 
+    GreenfootImage[] sonicRight = {new GreenfootImage("PNGSONIC1.png"), new GreenfootImage("PNGSONIC2.png"), new GreenfootImage("PNGSONIC3.png"), new GreenfootImage("PNGSONIC4.png"), new GreenfootImage("PNGSONIC5.png"), new GreenfootImage("PNGSONIC6.png"), new GreenfootImage("PNGSONIC7.png"), new GreenfootImage("PNGSONIC8.png"), new GreenfootImage("PNGSONIC9.png"), new GreenfootImage("PNGSONIC10.png")};
+    boolean isAlive = true;
+    public Heart[] hearts = new Heart[lives];
+    public void act(){
+    getWorld().showText("Player 2",hearts.length*50+100,60);
         frameCount++;
         speed = speed + 2;
         setLocation( getX(), getY() + speed);
-        getWorld().showText("Lives : "+ Lives +"",1450, 50);
-         if(Lives == 0)
+        getWorld().showText("Lives : "+ lives +"",1450, 50);
+            if(isTouching(Tube.class)) {
+        Greenfoot.setWorld(new BackGround1());
+    }
+         if(lives == 0)
         {
             getWorld().removeObject(this);
-            
+
+            isAlive = false;
         }
         else {
         if(isTouching(Barrel.class))
         {
             removeTouching(Barrel.class);
-            getWorld().removeObject(hearts[Lives-1]);
-            Lives = Lives - 1;
+            getWorld().removeObject(hearts[lives-1]);
+            lives = lives - 1;
         }
         if(speed > 0)
         {
-            while(isTouching(Floor.class))
+            while(isTouching(Floor.class) || isTouching(Tube.class))
             {
                 speed = 0;
                 setLocation(getX(), getY() - 1);
@@ -52,7 +58,7 @@ public class Sonic extends Actor
         }
         if(speed <= 0)
         {
-            while(isTouching(Floor.class))
+            while(isTouching(Floor.class) || isTouching(Tube.class))
             {
                 speed = 0;
                 setLocation(getX(), getY() + 2);
@@ -61,7 +67,7 @@ public class Sonic extends Actor
         if(Greenfoot.isKeyDown("a"))
         {
             move(-10);
-            while(isTouching(Floor.class))
+            while(isTouching(Floor.class) || isTouching(Tube.class))
             {
                 move(2);
             } 
@@ -69,10 +75,23 @@ public class Sonic extends Actor
             if(Greenfoot.isKeyDown("d"))
             {
                 move(10);
-                while(isTouching(Floor.class))
+                while(isTouching(Floor.class) || isTouching(Tube.class))
                 {
                     move(-2);
                 }
+                if(frameCount%7 == 0) {
+                    animationCount++;
+                    if(animationCount < 8) {
+                        setImage(sonicRight[animationCount]);
+                    }
+                    else {
+                        animationCount = 5;
+                    }
+                }
+            }
+            else {
+                animationCount = 0;
+                setImage(sonicRight[0]);
             }
         }
         if(Greenfoot.isKeyDown("s"))
@@ -81,4 +100,13 @@ public class Sonic extends Actor
         }
     }
     }    
+       public boolean getBool() {
+        return isAlive;
+    }
+    public int sonicLives() {
+        return lives;
+    }
+    public Heart[] heartCount() {
+        return hearts;
+    }
 }

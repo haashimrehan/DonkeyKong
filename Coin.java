@@ -21,6 +21,13 @@ public class Coin extends Actor
         else if(isTouching(Sonic.class)) {
            getWorld().removeObject(this);
            BackGround1.addScore2();
+           SonicLeel.addScore2();
+        } 
+        else if(isTouching(Floor2.class) || isTouching(Tube.class) || this.getY() <= SonicLeel.height - 550) {
+            getWorld().removeObject(this);
         }
+        //if these if methods in the at method are met, depending on who
+        //it will either add sore to either mario or sonics score depending
+        //on who touched the coin
     }    
 }

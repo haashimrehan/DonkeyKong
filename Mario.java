@@ -1,13 +1,17 @@
 import greenfoot.*;
 public class Mario extends Actor
 {
-    boolean changeImage = false;
+    boolean changeImage = false; // set boolean to false
+    
+    // Different pictures/sprites for mario in an array
     String[] imageNames = {"MarioStandingStillRight.png","MarioWalkLeft.png","MarioWalkRight.png","MarioStandingStill.png","mariopixel.png","mariopixelCopy2.png" };  
 
+    //variabgles:
     int speed;
-    long frameCount = 0;
+    long frameCount = 0; // set frame count (timer) to 0
     long lastTime;
     int Lives = 3; 
+    
     public Heart[] hearts = new Heart[Lives];
     protected void addedToWorld(World world){
         getWorld().showText("Player 1",hearts.length*50+30,20);
@@ -20,9 +24,10 @@ public class Mario extends Actor
 
     public void act() 
     {
+        //add a frame counter (time)
         frameCount++;
 
-        speed = speed + 1;
+        speed = speed + 1; // set speed
         setLocation( getX(), getY() + speed);
         getWorld().showText("Lives : "+ Lives +"",1450, 50);
                  if(Lives == 0)
@@ -61,7 +66,7 @@ public class Mario extends Actor
                
             }
         }    
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("left")) // if left is pressed
         {
             move(-5);
             /*if(System.currentTimeMillis() - lastTime > 500 && Marioimage.equals("mariopixelCopy.png"))
@@ -77,13 +82,15 @@ public class Mario extends Actor
             lastTime = System.currentTimeMillis();
             }
             } */
-     if (frameCount %20 ==0) {
+            
+            //counts the time to change mario to a walking sprite to look more realistic
+     if (frameCount %20 ==0) { // every frameCount modulo 20 change the boolean to false ( 20 frames )
                     changeImage = !changeImage;
                 }
-                if(changeImage) {
-                    setImage(imageNames[1]);
+                if(changeImage) { 
+                    setImage(imageNames[1]); // change the walking image 
                 }         else {
-                    setImage(imageNames[3]);
+                    setImage(imageNames[3]); //re-change the walking image
                 }
 
             while(isTouching(Floor.class))
@@ -94,40 +101,44 @@ public class Mario extends Actor
         
         
         else {
+            //this controls when the walking right image is displayed
             if(Greenfoot.isKeyDown("right"))
             {
-                if (frameCount %20 ==0) {
-                    changeImage = !changeImage;
+                if (frameCount %20 ==0) { // every frameCount modulo 20 ( 20 frames)
+                    changeImage = !changeImage; // change boolean
                 }
                 if(changeImage) {
-                    setImage(imageNames[2]);
+                    setImage(imageNames[2]); // change the walking image
                 }         else {
-                    setImage(imageNames[0]);
+                    setImage(imageNames[0]); // re-change the image
                 }
 
                 
                 move(5);
+                
                 // setImage(imageNames[2]);
                 while(isTouching(Floor.class))
                 {
                     move(-1);
                 }
             } else{
-                setImage(imageNames[0]);
+                setImage(imageNames[0]); // chang the image 
             }
         }
-        if(Greenfoot.isKeyDown("down"))
+        if(Greenfoot.isKeyDown("down")) // if down is pressed
         {
             speed = 50;
         }
        
+        // add jump sprite for when mario jumps right and left
            if(Greenfoot.isKeyDown("up"))
                 {
-                    setImage(imageNames[4]);
+                    setImage(imageNames[4]); // change image to jumping
                 }
+                // change image to jumping to left ( when up and left are pressed)
                 if(Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("left"))
                 {
-                    setImage(imageNames[5]);
+                    setImage(imageNames[5]); // change image to jump and left
                 }        
                 
     }

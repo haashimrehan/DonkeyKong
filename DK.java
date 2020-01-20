@@ -1,13 +1,15 @@
 import greenfoot.*;
 public class DK extends Actor
 {
-    boolean changeImage = false;
-    long frameCount = 0;
+    boolean changeImage = false; // set boolean to false
+    long frameCount = 0; // set frame count (timer) to 0
+    
+    // different donkey kong images in a array
     String[] imageNames = {"DKRightHand.png","DKLeftHand.png","DKIdol.png","DKAngryIdol.png" };  
     long lastTime;
     public void act() 
     {
-        frameCount++;
+        frameCount++; // count frames ( as a somewhat timer)
 
                 
         if(isTouching(Mario.class))
@@ -22,27 +24,23 @@ public class DK extends Actor
 
             //Greenfoot.stop();
         }
-        if(System.currentTimeMillis() - lastTime > 2500)
-
-        {
-
-        }
-         
-        if (frameCount %150 ==0) {
+        
+         // add barrel counter
+        if (frameCount %150 ==0) { // every 150 frames 
 
             lastTime = System.currentTimeMillis();
-            getWorld().addObject(new Barrel(), getX(), getY());
+            getWorld().addObject(new Barrel(), getX(), getY()); // add a new barrel
         }
 
                 
-        if (frameCount %75 ==0) {
-            changeImage = !changeImage;
+        if (frameCount %75 ==0) { // controls the sprite change (every 75 frames)
+            changeImage = !changeImage; // change the boolean changeimage
 
         }
-        if(changeImage) {
+        if(changeImage) { // boolean change the sprite image
             setImage(imageNames[2]);
 
-        }         else {
+        }         else { // else keep the original image
             setImage(imageNames[3]);
         }
 

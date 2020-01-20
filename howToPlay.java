@@ -15,15 +15,29 @@ public class HowToPlay extends World
      * Constructor for objects of class howToPlay.
      * 
      */
-    HTPImageText screenText = new HTPImageText("Controls: /nUP--> Jump/nLEFT-->moves Mario left/nRIGHT--> moves Mario Right"); 
+    public void act(){
+               if (Greenfoot.isKeyDown("space"))
+        {
+         Greenfoot.setWorld(new InitialScreen());
+       }
+
+    }
     public HowToPlay()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(w, h, 1);
         //getHowToPlay().drawImage(new GreenfootImage("Text to display", 64, null, null), 40, 40);
         addObject(new HTPImage(), 100, 300); //coin
-        addObject(new HTPImage2(),w/2, h/2); //controls
-        addObject(screenText, w/2+100, h/2-200);
+        addObject(new HTPImage2(),w/2, h/2+100); //controls
+        addObject(new HTPTextMain(), w/2, 170);
+        addObject(new HTPRules(), w/4 +600, 400);
+        addObject(new HTPExitText(), w/2, h/4 + 500);
+        addObject(new HTPHeart(), 100, 350);
+        addObject(new HTPMario(), 100, 420);
+        addObject(new HTPSonic(), 100, 480);
+        addObject(new HTPTexts(), 240, 550);
+        addObject(new HTPBarrel(), 100, 540);
+        addObject(new HTPkeys(), w/2, h/2 +75);
         //setImage("howToPlay.png");
         
     }

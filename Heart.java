@@ -11,11 +11,6 @@ public class Heart extends Actor
     Heart[] sonicHearts = SonicLeel.numOfHearts();
     public void act() 
     {
-        GreenfootImage image = getImage();
-        
-        setImage(image);
-        //setLocation(515, 560); 
-        // Add your action code here.
     }    
 
 }

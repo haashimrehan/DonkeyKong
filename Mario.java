@@ -1,20 +1,15 @@
 import greenfoot.*;
 public class Mario extends Actor
 {
-    boolean changeImage = false; // set boolean to false
-    
-    // Different pictures/sprites for mario in an array
-    String[] imageNames = {"MarioStandingStillRight.png","MarioWalkLeft.png","MarioWalkRight.png","MarioStandingStill.png","mariopixel.png","mariopixelCopy2.png" };  
+    boolean changeImage = false;
+    String[] imageNames = {"MarioStandingStillRight.png","MarioWalkLeft.png","MarioWalkRight.png","MarioStandingStill.png" };  
 
-    //variabgles:
     int speed;
-    long frameCount = 0; // set frame count (timer) to 0
+    long frameCount = 0;
     long lastTime;
-
     int lives = 3; 
     boolean isAlive = true;
     public Heart[] hearts = new Heart[lives];
-
     protected void addedToWorld(World world){
         getWorld().showText("Player 1",hearts.length*50+30,20);
         for(int i = 0; i < hearts.length; i++) {
@@ -26,10 +21,9 @@ public class Mario extends Actor
 
     public void act() 
     {
-        //add a frame counter (time)
         frameCount++;
 
-        speed = speed + 1; // set speed
+        speed = speed + 1;
         setLocation( getX(), getY() + speed);
         getWorld().showText("Lives : "+ lives +"",1450, 50);
                  if(lives == 0)
@@ -37,11 +31,7 @@ public class Mario extends Actor
             getWorld().removeObject(this);
             isAlive = false;
         }
-        
         else {
-            
-             
-                
         if(isTouching(Barrel.class))
         {
             removeTouching(Barrel.class);
@@ -66,10 +56,9 @@ public class Mario extends Actor
             {
                 speed = 0;
                 setLocation(getX(), getY() + 1);
-               
             }
         }    
-        if(Greenfoot.isKeyDown("left")) // if left is pressed
+        if(Greenfoot.isKeyDown("left"))
         {
             move(-5);
             /*if(System.currentTimeMillis() - lastTime > 500 && Marioimage.equals("mariopixelCopy.png"))
@@ -85,65 +74,46 @@ public class Mario extends Actor
             lastTime = System.currentTimeMillis();
             }
             } */
-            
-            //counts the time to change mario to a walking sprite to look more realistic
-     if (frameCount %20 ==0) { // every frameCount modulo 20 change the boolean to false ( 20 frames )
+     if (frameCount %20 ==0) {
                     changeImage = !changeImage;
                 }
-                if(changeImage) { 
-                    setImage(imageNames[1]); // change the walking image 
+                if(changeImage) {
+                    setImage(imageNames[1]);
                 }         else {
-                    setImage(imageNames[3]); //re-change the walking image
+                    setImage(imageNames[3]);
                 }
 
             while(isTouching(Floor.class))
             {
                 move(1);
             } 
-        } 
-        
-        
-        else {
-            //this controls when the walking right image is displayed
+        } else {
             if(Greenfoot.isKeyDown("right"))
             {
-                if (frameCount %20 ==0) { // every frameCount modulo 20 ( 20 frames)
-                    changeImage = !changeImage; // change boolean
+                if (frameCount %20 ==0) {
+                    changeImage = !changeImage;
                 }
                 if(changeImage) {
-                    setImage(imageNames[2]); // change the walking image
+                    setImage(imageNames[2]);
                 }         else {
-                    setImage(imageNames[0]); // re-change the image
+                    setImage(imageNames[0]);
                 }
 
                 
                 move(5);
-                
                 // setImage(imageNames[2]);
                 while(isTouching(Floor.class))
                 {
                     move(-1);
                 }
             } else{
-                setImage(imageNames[0]); // chang the image 
+                setImage(imageNames[0]);
             }
         }
-        if(Greenfoot.isKeyDown("down")) // if down is pressed
+        if(Greenfoot.isKeyDown("down"))
         {
             speed = 50;
         }
-       
-        // add jump sprite for when mario jumps right and left
-           if(Greenfoot.isKeyDown("up"))
-                {
-                    setImage(imageNames[4]); // change image to jumping
-                }
-                // change image to jumping to left ( when up and left are pressed)
-                if(Greenfoot.isKeyDown("up") && Greenfoot.isKeyDown("left"))
-                {
-                    setImage(imageNames[5]); // change image to jump and left
-                }        
-                
     }
     } 
     public boolean getBool() {

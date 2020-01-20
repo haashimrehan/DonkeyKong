@@ -34,7 +34,6 @@ public class Sonic extends Actor
          if(lives == 0)
         {
             getWorld().removeObject(this);
-
             isAlive = false;
         }
         else {

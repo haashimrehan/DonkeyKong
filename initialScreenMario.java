@@ -1,5 +1,5 @@
 import greenfoot.*;
-public class initialScreenMario extends Actor
+public class InitialScreenMario extends Actor
 {
     boolean changeImage = false;
     String[] imageNames = {"MarioStandingStillRight.png","MarioWalkLeft.png","MarioWalkRight.png","MarioStandingStill.png" };  

@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class howToPlayButton extends Actor
+public class HowToPlayButton extends Actor
 {
     /**
      * Act - do whatever the howToPlayButton wants to do. This method is called whenever
@@ -16,7 +16,7 @@ public class howToPlayButton extends Actor
     {
         if (Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new howToPlay());
+            Greenfoot.setWorld(new HowToPlay());
         }
         GreenfootImage howto = getImage();
         howto.scale(300, 200);

@@ -7,6 +7,7 @@ public class Mario extends Actor
     int speed;
     long frameCount = 0;
     long lastTime;
+    int maxLives = 3;
     int lives = 3; 
     boolean isAlive = true;
     public Heart[] hearts = new Heart[lives];
@@ -114,6 +115,13 @@ public class Mario extends Actor
         {
             speed = 50;
         }
+    }
+    
+    if (isTouching(PowerUp.class) && lives < maxLives) {
+        removeTouching(PowerUp.class);
+        getWorld().addObject(hearts[lives-1],(lives-1)*40+25,20);
+    lives++;
+    
     }
     } 
     public boolean getBool() {

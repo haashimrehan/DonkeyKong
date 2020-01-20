@@ -10,13 +10,20 @@ public class BackGround1 extends World
 {
     static ScoreCounter score = new Player2Score();
     static ScoreCounter sonicScore = new Player2Score();
-    static Mario m = new Mario();
-    static Sonic s = new Sonic();
+     Mario m = new Mario();
+   Sonic s = new Sonic();
     long frameCount = 0;
     public void act() {
-        if (frameCount %100 == 0) {
+        if (m.lives <= 2 && new PowerUp().hearts < 2 ){
+        if (frameCount %500 == 0) {
             addObject(new PowerUp(), Greenfoot.getRandomNumber(800),Greenfoot.getRandomNumber(800));
+       new PowerUp().hearts++;
+  
+        m.lives++;
         }
+        
+
+    }
         frameCount++;
   
         if(m.getBool() == false && s.getBool() == false) {
